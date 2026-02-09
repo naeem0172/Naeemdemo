@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Projects</title>
+</head>
+<body>
+
+<h1>📂 All Projects</h1>
+<div id="project-list"></div>
+
+<script src="js/supabase.js"></script>
+<script>
+  async function loadProjects() {
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      document.getElementById("project-list").innerText = "Error loading projects";
+      console.error(error);
+      return;
+    }
+
+    const container = document.getElementById("project-list");
+
+    data.forEach(p => {
+      const box = document.createElement("div");
+      box.innerHTML = `
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+        <p><b>Category:</b> ${p.category}</p>
+        <p><b>Tech:</b> ${p.tech_stack}</p>
+        <a href="${p.live_url}" target="_blank">Live</a> |
+        <a href="${p.repo_url}" target="_blank">Code</a>
+        <hr>
+      `;
+      container.appendChild(box);
+    });
+  }
+
+  loadProjects();
+</script>
+
+</body>
+</html>

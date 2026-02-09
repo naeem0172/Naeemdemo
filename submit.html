@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Project | Project Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="page">
+    <div class="form-card">
+
+      <h1>🚀 Submit Your Project</h1>
+      <p class="form-subtitle">
+        Share your work with the world
+      </p>
+
+      <form id="projectForm">
+
+        <div class="field">
+          <label>Project Title</label>
+          <input type="text" id="title" required>
+        </div>
+
+        <div class="field">
+          <label>Description</label>
+          <textarea id="description" required></textarea>
+        </div>
+
+        <div class="field">
+          <label>Category</label>
+          <input type="text" id="category" placeholder="Web, App, Design">
+        </div>
+
+        <div class="field">
+          <label>Tech Stack</label>
+          <input type="text" id="tech" placeholder="HTML, CSS, JS">
+        </div>
+
+        <div class="field">
+          <label>Live URL</label>
+          <input type="url" id="live">
+        </div>
+
+        <div class="field">
+          <label>Repository URL</label>
+          <input type="url" id="repo">
+        </div>
+
+        <div class="field">
+          <label>Your Name</label>
+          <input type="text" id="author">
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit Project
+        </button>
+
+        <p id="msg"></p>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="js/supabase.js"></script>
+  <script src="js/submit.js"></script>
+
+</body>
+</html>
